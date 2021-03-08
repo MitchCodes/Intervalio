@@ -5,7 +5,6 @@
 
 {
   "extends": [
-    "tslint-microsoft-contrib"
   ],
   "rules": {
     "mocha-no-side-effect-code": false,
@@ -29,6 +28,8 @@
     "no-debugger": false,
     "max-line-length": false,
     "no-console": false,
+    "prefer-while": true,
+    "file-name-casing": [true, "ignore"],
     "interface-name": false, // https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines <-- interfaces should not start with I
     "trailing-comma": [ // https://palantir.github.io/tslint/rules/trailing-comma/
       true,

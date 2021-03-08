@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 var fs = require('fs');
+const CopyPlugin = require("copy-webpack-plugin");
 
 var nodeModules = {};
 fs.readdirSync('node_modules')
@@ -12,12 +13,12 @@ fs.readdirSync('node_modules')
   });
 
 module.exports = {
-  entry: './src/main.ts',
+  entry: './src/intervalio.ts',
   devtool: 'source-map',
   target: 'node',
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'main.js',
+    filename: 'intervalio.js',
     devtoolModuleFilenameTemplate: '[absolute-resource-path]'
   },
   resolve: {
@@ -25,10 +26,15 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js']
   },
   plugins: [
-    new webpack.WatchIgnorePlugin([
+    new webpack.WatchIgnorePlugin({paths: [
       /\.js$/,
       /\.d\.ts$/
-    ])
+    ]}),
+    new CopyPlugin({
+      patterns: [
+        { from: "interval-checks", to: "interval-checks" },
+      ],
+    }),
   ],
   externals: nodeModules
 }

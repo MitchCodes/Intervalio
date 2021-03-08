@@ -31,4 +31,4 @@ const logger = createLogger({
 logger.info('Logger level: ' + logger.level);
 
 let mainController : MainController = new MainController();
-mainController.startProgram(logger, nconf);
+mainController.startProgram(logger, nconf, process.argv.slice(2));
