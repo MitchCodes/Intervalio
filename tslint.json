@@ -1,8 +1,3 @@
-/**
- * This starter project recommended using Microsoft TSLint rules.
- * Please see https://github.com/Microsoft/tslint-microsoft-contrib for more details.
- */
-
 {
   "extends": [
   ],
@@ -30,8 +25,8 @@
     "no-console": false,
     "prefer-while": true,
     "file-name-casing": [true, "ignore"],
-    "interface-name": false, // https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines <-- interfaces should not start with I
-    "trailing-comma": [ // https://palantir.github.io/tslint/rules/trailing-comma/
+    "interface-name": false,
+    "trailing-comma": [
       true,
       {
         "multiline": "always",
