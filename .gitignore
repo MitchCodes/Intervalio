@@ -22,8 +22,6 @@ build/
 .eslintcache
 
 # Configuration
-config.dev.json
-config.prod.json
 
 # Misc
 .DS_Store

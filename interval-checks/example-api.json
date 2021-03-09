@@ -1,0 +1,17 @@
+{
+  "name": "example api check",
+  "enabled": false,
+  "methods": [
+    {
+      "methodType": "api-call",
+      "intervalSeconds": 30,
+      "httpMethod": "get",
+      "httpUrl": "https://api.weather.gov/",
+      "httpHeaders": {},
+      "conditions": [
+        "status='OK'"
+      ]
+    }
+  ],
+  "actions": []
+}
