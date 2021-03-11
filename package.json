@@ -37,7 +37,8 @@
     "test-only": "jest --coverage",
     "test:watch": "jest --watch",
     "test-basic": "jest",
-    "start": "node ./build/intervalio.js"
+    "start": "node ./build/intervalio.js",
+    "generate-examples": "npm run build & node ./build/intervalio.js --generateExamples & npm run build"
   },
   "author": "Mitch Chiles <mitchchiles@gmail.com>",
   "repository": {
@@ -52,6 +53,7 @@
     "axios": "^0.21.1",
     "moment": "^2.24.0",
     "nconf": "~0.10.0",
+    "node-notifier": "^9.0.0",
     "tslib": "~1.8.1",
     "winston": "3.2.1",
     "winston-daily-rotate-file": "3.8.0",

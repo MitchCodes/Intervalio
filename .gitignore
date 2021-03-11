@@ -21,7 +21,11 @@ build/
 # Optional eslint cache
 .eslintcache
 
-# Configuration
+# Interval checks
+!interval-checks/
+
+interval-checks/*
+!interval-checks/examples/
 
 # Misc
 .DS_Store

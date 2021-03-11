@@ -18,6 +18,15 @@
         {
             "type": "node",
             "request": "launch",
+            "name": "Launch Program - Generate Examples",
+            "runtimeExecutable": "npm",
+            "cwd": "${workspaceRoot}",
+            "runtimeArgs": ["run", "generate-examples" ],
+            "port": 9229
+        },
+        {
+            "type": "node",
+            "request": "launch",
             "name": "Launch Program Prod",
             "program": "${workspaceFolder}/src\\intervalio.ts",
             "outFiles": [

@@ -1,0 +1,45 @@
+{
+  "name": "example api check",
+  "enabled": false,
+  "intervalSeconds": 15,
+  "intervalFirstDelay": 0,
+  "methods": [
+    {
+      "methodType": "api-call",
+      "httpMethod": "get",
+      "httpUrl": "https://api.weather.gov/",
+      "httpHeaders": {},
+      "httpResponseType": "json",
+      "httpRequestBody": {},
+      "resultVariable": "api",
+      "onlyNewlyTriggered": false,
+      "previouslyTriggered": false,
+      "conditions": [
+        {
+          "type": "equal",
+          "convertToString": true,
+          "conditionOne": "{{api.status}}",
+          "conditionTwo": "OK"
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "actionType": "notification",
+      "title": "Weather API",
+      "message": "API lookin' good captain!"
+    },
+    {
+      "actionType": "log",
+      "message": "The weather API looks good."
+    }
+  ],
+  "failActions": [
+    {
+      "actionType": "log",
+      "message": "The weather API is not looking good."
+    }
+  ],
+  "variables": {}
+}

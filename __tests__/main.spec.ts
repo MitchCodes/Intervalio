@@ -35,13 +35,13 @@ describe('test serialization', () => {
   // tslint:disable-next-line:mocha-unneeded-done
   test('expect to be able to deserialize api example', (done: any) => {
     let intervalChecksFolder: string = nconf.get('intervalChecksFolder');
-    let apiExampleJson: string = readFileSync('./' + intervalChecksFolder + '/example-api.json', {
+    let apiExampleJson: string = readFileSync('./' + intervalChecksFolder + '/examples/example-api.json', {
       encoding: 'utf8'
     });
     expect(apiExampleJson !== '').toBeTruthy();
 
     let intervalFactory: IntervalFactory = new IntervalFactory();
-    let apiIntervalCheck: IntervalCheck = intervalFactory.buildIntervalCheck(apiExampleJson);
+    let apiIntervalCheck: IntervalCheck = intervalFactory.buildIntervalCheck(apiExampleJson, null);
     expect(apiIntervalCheck).not.toBeNull();
 
     done();

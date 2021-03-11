@@ -1,8 +1,14 @@
+import { Dictionary } from "./dictionary";
+
 export class IntervalCheck {
     name: string = "Interval";
     enabled: boolean = true;
+    intervalSeconds: number = 30;
+    intervalFirstDelay: number = 0;
     methods: IntervalCheckMethod[] = [];
     actions: IntervalCheckAction[] = [];
+    failActions: IntervalCheckAction[] = [];
+    variables: Dictionary<string> = {};
 
     constructor(instanceData?: IntervalCheck) {
         if (instanceData) {
@@ -10,7 +16,7 @@ export class IntervalCheck {
         }
     }
 
-    private deserialize(instanceData: IntervalCheck) {
+    protected deserialize(instanceData: IntervalCheck) {
         // Note this.active will not be listed in keys since it's declared, but not defined
         const keys = Object.keys(this);
 
@@ -24,8 +30,7 @@ export class IntervalCheck {
 
 export interface IntervalCheckMethod {
     methodType: IntervalCheckMethodType;
-    intervalSeconds: number;
-    run(interval: IntervalCheck): boolean;
+    run(interval: IntervalCheck, data: Dictionary<string>): Promise<boolean>;
 }
 
 export enum IntervalCheckMethodType {
@@ -34,10 +39,10 @@ export enum IntervalCheckMethodType {
 
 export interface IntervalCheckAction {
     actionType: IntervalCheckActionType;
-    run(interval: IntervalCheck): void;
+    run(interval: IntervalCheck, data: Dictionary<string>): Promise<void>;
 }
 
 export enum IntervalCheckActionType {
-    Sound = "sound",
-    Notification = "notification"
+    Notification = "notification",
+    Log = "log"
 }
